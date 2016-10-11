@@ -18,8 +18,35 @@ angular.module('myApp.edit', ['ngRoute'])
   $scope.options={
     async: {
       saveUrl: SeatEatsConstants.AppUrlApi+"postCall.php",
-      removeUrl: SeatEatsConstants.AppUrlApi+ "removefile.php"
-    }
+      removeUrl: SeatEatsConstants.AppUrlApi+ "removefile.php",
+      autoUpload: false,
+
+
+    },
+    multiple: false,
+    template: kendo.template($('#fileTemplate').html()),
+    validation: {
+      allowedExtensions: [".png"],
+    },
+    select: onSelect
   };
+
+
+
+function onSelect(e) {
+  readMultipleFiles(e.files[0]);
+
+
+}
+
+
+  function readMultipleFiles(file) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      // bind the file content
+      $("#previmg").attr({ src: e.target.result });
+    }
+    reader.readAsDataURL(file.rawFile);
+  }
 
 }]);

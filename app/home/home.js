@@ -25,13 +25,6 @@ angular.module('myApp.home', ['ngRoute'])
 
 
 
-  $scope.uploader="helloasdsadasd";
-  $scope.options={
-    async: {
-      saveUrl: SeatEatsConstants.AppUrlApi+"postCall.php",
-      removeUrl: "http://my-app.localhost/remove"
-    }
-  };
   $scope.openRepo = function ()
   {
 

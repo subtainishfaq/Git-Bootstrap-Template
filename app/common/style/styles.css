@@ -600,3 +600,77 @@ img::-moz-selection {
 .deckgrid .column-1-4 {
     width: 25%;
 }
+
+.file-icon {
+    display: inline-block;
+    float: left;
+    width: 48px;
+    height: 48px;
+    margin-left: 10px;
+    margin-top: 13.5px;
+}
+
+
+#example .file-heading {
+    font-family: Arial;
+    font-size: 1.1em;
+    display: inline-block;
+    float: left;
+    width: 60%;
+    margin: 0 0 0 20px;
+    height: 25px;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+#example .file-name-heading {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#example .file-size-heading {
+    font-weight: normal;
+    font-style: italic;
+}
+
+li.k-file .file-wrapper .k-upload-action {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+li.k-file div.file-wrapper {
+    position: relative;
+    height: 75px;
+
+}
+
+.box{
+    width:40%;
+    height:200px;
+    float:left;
+    background-color:white;
+    margin:25px 15px;
+    border-radius:5px;
+}
+.box h3{
+    font-family: 'Didact Gothic', sans-serif;
+    font-weight:normal;
+    text-align:center;
+    padding-top:60px;
+    color:#fff;
+}
+.box1{
+    background-color: rgba(251, 174, 168, 0.35);
+}
+
+.shadow1 h3, .shadow2 h3, .shadow3 h3, .shadow4 h3, .shadow5 h3, .shadow6 h3, .shadow7 h3, .shadow8 h3{
+    width:87%;
+    height:150px;
+    margin-left:6%;
+    border:2px dashed #b2acac;
+    border-radius:7px;
+}
