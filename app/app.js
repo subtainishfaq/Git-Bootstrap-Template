@@ -6,7 +6,8 @@ angular.module('myApp', [
   'myApp.view1',
   'myApp.view2',
   'myApp.version',
-  'angularFileUpload'
+  'angularFileUpload',
+  'kendo.directives',
 
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

@@ -9,8 +9,15 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [function()
+.controller('View1Ctrl', ['$scope','SeatEatsConstants',function($scope,SeatEatsConstants)
 {
+  $scope.uploader="helloasdsadasd";
+  $scope.options={
+    async: {
+      saveUrl: SeatEatsConstants.AppUrlApi+"postCall.php",
+      removeUrl: "http://my-app.localhost/remove"
+    }
+  };
 
 
 }]);
