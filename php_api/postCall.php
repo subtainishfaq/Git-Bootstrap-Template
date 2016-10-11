@@ -6,7 +6,7 @@
  * Time: 12:32 PM
  */
 
-$uploads_dir = '../repository2';
+/*$uploads_dir = '../repository2';
 foreach ($_FILES["Picture"]["error"] as $key => $error) {
     if ($error == UPLOAD_ERR_OK) {
         $tmp_name = $_FILES["Picture"]["tmp_name"][$key];
@@ -15,5 +15,6 @@ foreach ($_FILES["Picture"]["error"] as $key => $error) {
         $name = basename("test.png");
         move_uploaded_file($tmp_name, "$uploads_dir/$name");
     }
-}
+}*/
+echo "great";
 ?>
