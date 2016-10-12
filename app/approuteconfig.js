@@ -21,7 +21,7 @@
                         // inside our Controller. Inject any Services we need as usual.
                         repolist: function (homeService) {
                             // Return our Service call, that returns a Promise
-                            return homeService.getRepoList();
+                           return ["repository1","repository2"]// return homeService.getRepoList();
                         }
                     },
                 url: '/',
