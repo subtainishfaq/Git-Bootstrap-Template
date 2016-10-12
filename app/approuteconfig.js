@@ -19,10 +19,11 @@
                         // create an Object property called "messages"
                         // which will later be used for Dependency Injection
                         // inside our Controller. Inject any Services we need as usual.
-                        messages: function () {
+                        repolist: function (homeService) {
                             // Return our Service call, that returns a Promise
-                            return "hello";
-                        }},
+                            return homeService.getRepoList();
+                        }
+                    },
                 url: '/',
                 templateUrl: 'home/home.html',
                 controller: 'HomeCtrl',

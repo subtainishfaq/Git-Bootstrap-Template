@@ -4,12 +4,10 @@
     function repoPartial() {
         var directive = {
             scope: {
-                form: "=",
                 readonly: "=",
                 disabled: "=",
-                contactsList: "=",
-                regions: "=",
-                OnRemove:"=",
+                repoList: "=",
+                onRemove:"=",
                 openRepo:"="
 
             },
@@ -24,21 +22,12 @@
     function repoCtrl($scope) {
         var vm = this;
         vm.scope = $scope;
-        vm.ContactList = vm.scope.contactsList;
-        vm.options = [
-            {
-                LookupId: 1,
-                VisibleValue: "Yes"
-            },
-            {
-                LookupId: 0,
-                VisibleValue: "No"
-            }
-        ];
+        vm.repoList = vm.scope.repoList;
+      
 
 
         vm.form = vm.scope.form;
-        console.log(vm.scope.contactsList);
+        console.log(vm.scope.repoList);
         vm.addNewContact = function () {
             if (true) {
                 var obj = {
@@ -49,7 +38,7 @@
                     Based: null,
 
                 };
-                vm.ContactList.push(obj);
+                vm.repoList.push(obj);
             }
         };
         vm.addContact = function () {
@@ -57,8 +46,8 @@
 
         }
         vm.deleteContact = function (item, index) {
-            if (vm.ContactList.length > 1) {
-                vm.ContactList.remove(index);
+            if (vm.repoList.length > 1) {
+                vm.repoList.remove(index);
 
             }
         };
@@ -69,8 +58,8 @@
         };
 
 
-        vm.ContactList = vm.scope.contactsList;
-        if (vm.ContactList.length == 0) {
+        vm.repoList = vm.scope.repoList;
+        if (vm.repoList.length == 0) {
             vm.addNewContact();
         }
 
