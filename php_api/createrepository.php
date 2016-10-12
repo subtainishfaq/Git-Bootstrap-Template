@@ -21,6 +21,9 @@ foreach ($_FILES["Picture"]["error"] as $key => $error) {
 $move = "../repository".$_GET['index'];
 if (!file_exists($move)) {
     mkdir($move, 0777, true);
+    echo "created";
 }
+else
+    echo "already created";
 
 ?>

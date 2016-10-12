@@ -7,7 +7,10 @@
  */
 
 $move = "../repository".$_GET['index'];
-Delete($move);
+if(Delete($move))
+    echo "Deleted\n";
+else
+    echo "Not Deleted";
 
 
 function Delete($path)
