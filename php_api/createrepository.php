@@ -17,11 +17,10 @@ foreach ($_FILES["Picture"]["error"] as $key => $error) {
     }
 }*/
 
-$move = "../repository2/";
 
-if (move_uploaded_file($_FILES['file']['tmp_name'], $move . "test.png")) {
-    echo "Uploaded";
-} else {
-    echo "File was not uploaded";
+$move = "../repository".$_GET['index'];
+if (!file_exists($move)) {
+    mkdir($move, 0777, true);
 }
+
 ?>
