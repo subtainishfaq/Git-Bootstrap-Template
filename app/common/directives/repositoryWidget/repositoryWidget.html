@@ -1,0 +1,31 @@
+<div style="margin-right:0px;width:100%">
+    <div>
+        <md-button ng-disabled="claimCtrl.scope.readonly"
+                   class="md-icon-button md-mini phone-button"
+                   style="float: right;!important;margin-right: 0px;padding-right: 0px"
+                   ng-click="claimCtrl.addContact(emails,$index)">
+            <md-icon class="phoneicons material-icons md-primary" ng-class="{'grey-icon': false}">add_circle</md-icon>
+        </md-button>
+
+    </div>
+    <div layout="row" style="width: 100%" ng-repeat="item in claimCtrl.ContactList" flex>
+
+<!--content here-->
+
+        <md-button
+
+                ng-disabled="claimCtrl.scope.readonly || item.TmxContactPerson.PrimaryContactFlag"
+                class="md-icon-button md-mini phone-button margin-left-16"
+
+                ng-click="claimCtrl.deleteContact(item,$index)"
+        >
+            <md-icon class="phoneicons material-icons md-warn"
+                     ng-class="{'grey-icon':item.TmxContactPerson.PrimaryContactFlag}">remove_circle
+            </md-icon>
+        </md-button>
+
+
+    </div>
+
+
+</div>
