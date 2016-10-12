@@ -15,9 +15,18 @@
         $stateProvider
             .state('home',
                 {
+                    resolve: {
+                        // create an Object property called "messages"
+                        // which will later be used for Dependency Injection
+                        // inside our Controller. Inject any Services we need as usual.
+                        messages: function () {
+                            // Return our Service call, that returns a Promise
+                            return "hello";
+                        }},
                 url: '/',
                 templateUrl: 'home/home.html',
-                controller: 'HomeCtrl'
+                controller: 'HomeCtrl',
+
             })
             .state('repository', {
                 url: '/view2',

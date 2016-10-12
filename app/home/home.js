@@ -2,14 +2,16 @@
 
 angular.module('myApp.home', ['ngRoute'])
 
+/*
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/home', {
     templateUrl: 'home/home.html',
     controller: 'HomeCtrl'
   });
 }])
+*/
 
-.controller('HomeCtrl', ['$scope','SeatEatsConstants','$location','$state',function($scope,SeatEatsConstants,$location,$state)
+.controller('HomeCtrl', ['$scope','SeatEatsConstants','$location','$state','messages',function($scope,SeatEatsConstants,$location,$state,messages)
 {
 
   $("#chessboard div").hover(
@@ -23,7 +25,7 @@ angular.module('myApp.home', ['ngRoute'])
         kendo.fx(div.find(".description")).tile("left", div.find(".icon")).reverse();
       });
 
-
+console.log(messages);
 
   $scope.openRepo = function ()
   {
