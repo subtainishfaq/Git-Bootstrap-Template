@@ -6,10 +6,10 @@ angular.module("myApp").factory('repositoryService',['$http','SeatEatsConstants'
 
     var repository = {};
 
-    repository.getRepoFileList= function ()
+    repository.getRepoFileList= function (repo)
     {
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'getRepoFileList.php');
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'getRepoFileList.php?repo='+repo);
         return promise;
     };
  /*   repository.createRepo= function (index)

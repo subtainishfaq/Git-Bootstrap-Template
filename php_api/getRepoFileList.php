@@ -5,16 +5,18 @@
  * Date: 10/12/16
  * Time: 10:16 PM
  */
-$directories = glob("../" . '/repository*' , GLOB_ONLYDIR);
+$move = "../".$_GET['repo'];
 $jsonvar=array();
+$index=0;
 
-
-foreach ($directories as $value)
+foreach(glob($log_directory.'/*.png') as $file)
 {
-    array_push($jsonvar,substr($value,4));
-
+    //"http://$_SERVER[HTTP_HOST]
+    $post_data = array('id' => 'p'+$index,
+        'title' => $file,
+        'src' => "http://$_SERVER[HTTP_HOST]/".$_GET['repo']."/".$file);
+    array_push($jsonvar,$post_data);
+    $index++;
 }
-
-echo json_encode($jsonvar);
-
+echo  json_encode($jsonvar);
 ?>
