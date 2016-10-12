@@ -9,7 +9,7 @@ angular.module('myApp.home', ['ngRoute'])
   });
 }])
 
-.controller('HomeCtrl', ['$scope','SeatEatsConstants','$location',function($scope,SeatEatsConstants,$location)
+.controller('HomeCtrl', ['$scope','SeatEatsConstants','$location','$state',function($scope,SeatEatsConstants,$location,$state)
 {
 
   $("#chessboard div").hover(
@@ -29,7 +29,7 @@ angular.module('myApp.home', ['ngRoute'])
   {
 
     //change state and show pictures there
-    $location.path("/view2");
+      $state.go("repository");
   }
 
 }]);

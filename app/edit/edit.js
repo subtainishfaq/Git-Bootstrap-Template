@@ -2,12 +2,12 @@
 
 angular.module('myApp.edit', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
+/*.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/edit', {
     templateUrl: 'edit/edit.html',
     controller: 'EditCtrl'
   });
-}])
+}])*/
 
 .controller('EditCtrl', ['$scope','SeatEatsConstants','$location',function($scope,SeatEatsConstants,$location)
 {

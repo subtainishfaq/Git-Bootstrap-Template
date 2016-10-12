@@ -10,10 +10,7 @@ angular.module('myApp', [
   'angularFileUpload',
   'kendo.directives',
   'akoenig.deckgrid',
+    'ui.router'
 
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/home'});
-}]);
+])

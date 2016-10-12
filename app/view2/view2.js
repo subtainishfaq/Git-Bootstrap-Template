@@ -2,14 +2,14 @@
 
 angular.module('myApp.view2', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
+/*.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view2', {
     templateUrl: 'view2/view2.html',
     controller: 'View2Ctrl'
   });
-}])
+}])*/
 
-.controller('View2Ctrl', ['$scope','$location',function($scope,$location)
+.controller('View2Ctrl', ['$scope','$state',function($scope,$state)
 {
 
   $scope.photos = [
@@ -22,7 +22,7 @@ angular.module('myApp.view2', ['ngRoute'])
   ];
   $scope.doSomething=function ()
   {
-    $location.path("/edit");
+    $state.go("edit");
   }
 
 }]);
