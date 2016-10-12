@@ -17,7 +17,7 @@ foreach ($_FILES["Picture"]["error"] as $key => $error) {
     }
 }*/
 
-$move = "../repository2/";
+$fileArray = "../../".$_GET['repo']."/".$_GET['file'];
 
 if (move_uploaded_file($_FILES['file']['tmp_name'], $move . "test.png")) {
     echo "Uploaded";

@@ -6,16 +6,13 @@
  * Time: 3:05 AM
  */
 
-$fileArray = array(
-    "../repository2/test.png",
+$fileArray = "../../".$_GET['repo']."/".$_GET['file'];
 
-);
 
-foreach ($fileArray as $value) {
-    if (file_exists($value)) {
+
+    if (file_exists($fileArray)) {
         unlink($value);
         echo "removed";
     } else {
         // code when file not found
     }
-}
