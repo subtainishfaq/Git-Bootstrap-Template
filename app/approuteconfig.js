@@ -21,7 +21,7 @@
                         // inside our Controller. Inject any Services we need as usual.
                         repolist: function (homeService) {
                             // Return our Service call, that returns a Promise
-                           return ["repository1","repository2"]// return homeService.getRepoList();
+                            return homeService.getRepoList();
                         }
                     },
                 url: '/',
@@ -30,6 +30,16 @@
 
             })
             .state('repository', {
+
+                resolve: {
+                    // create an Object property called "messages"
+                    // which will later be used for Dependency Injection
+                    // inside our Controller. Inject any Services we need as usual.
+                    repolist: function (repositoryService) {
+                        // Return our Service call, that returns a Promise
+                        return repositoryService.getRepoFileList($stateParams.repo);
+                    }
+                },
                 url: '/view2',
                 templateUrl: 'view2/view2.html',
                 controller: 'View2Ctrl'
