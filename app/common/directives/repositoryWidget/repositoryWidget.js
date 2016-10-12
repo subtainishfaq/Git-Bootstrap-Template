@@ -1,25 +1,27 @@
 (function () {
-    angular.module("tmx-app").directive('ncmClaimWidget', [contactPartial]);
+    angular.module("myApp").directive('repositoryWidget', [repoPartial]);
 
-    function contactPartial() {
+    function repoPartial() {
         var directive = {
             scope: {
                 form: "=",
                 readonly: "=",
                 disabled: "=",
                 contactsList: "=",
-                regions: "="
+                regions: "=",
+                OnRemove:"=",
+                openRepo:"="
 
             },
-            templateUrl: "common/directives/ClaimWidget/claimWidget.html",
-            controller: ["$scope", "AddressGeographyService", claimCtrl],
-            controllerAs: "claimCtrl"
+            templateUrl: "common/directives/repositoryWidget/repositoryWidget.html",
+            controller: ["$scope", repoCtrl],
+            controllerAs: "repoCtrl"
         };
         return directive;
     }
 
 
-    function claimCtrl($scope, AddressGeographyService) {
+    function repoCtrl($scope) {
         var vm = this;
         vm.scope = $scope;
         vm.ContactList = vm.scope.contactsList;
