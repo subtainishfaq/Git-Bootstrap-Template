@@ -9,11 +9,11 @@ angular.module('myApp.home', ['ngRoute'])
 
 $scope.repoList=repolist.data;
 $scope.dataLoading=false;
-  $scope.openRepo = function (item,index)
+  $scope.openRepo = function (item)
   {
 
     //change state and show pictures there
-      $state.go("repository",{ repo : item });
+      $state.go("repository",{ "repo": item });
   };
 
   $scope.removeRepo = function (item, index)
@@ -38,7 +38,7 @@ $scope.dataLoading=false;
     $scope.addNewRepo = function ()
     {
         $scope.dataLoading=true;
-        homeService.removeRepository(($scope.repoList.length + 1)).then(function(response)
+        homeService.createRepo(($scope.repoList.length + 1)).then(function(response)
         {
             console.log(response);
             var obj = "repository" + ($scope.repoList.length + 1);

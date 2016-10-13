@@ -9,14 +9,15 @@ $move = "../".$_GET['repo'];
 $jsonvar=array();
 $index=0;
 
-foreach(glob($log_directory.'/*.png') as $file)
+foreach(glob($move.'/*.png') as $file)
 {
     //"http://$_SERVER[HTTP_HOST]
+
     $post_data = array('id' => 'p'+$index,
-        'title' => $file,
-        'src' => "http://$_SERVER[HTTP_HOST]/".$_GET['repo']."/".$file);
+        'title' => basename($file),
+        'src' => "http://$_SERVER[HTTP_HOST]/upload/".$_GET['repo']."/".basename($file));
     array_push($jsonvar,$post_data);
     $index++;
 }
-echo  json_encode($jsonvar);
+print  json_encode($jsonvar);
 ?>

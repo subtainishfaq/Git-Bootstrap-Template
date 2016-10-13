@@ -35,12 +35,12 @@
                     // create an Object property called "messages"
                     // which will later be used for Dependency Injection
                     // inside our Controller. Inject any Services we need as usual.
-                    repofilelist: function (repositoryService) {
+                    repofilelist: function (repositoryService,$stateParams) {
                         // Return our Service call, that returns a Promise
                         return repositoryService.getRepoFileList($stateParams.repo);
                     }
                 },
-                url: '/view2',
+                url: '/view2/:repo',
                 templateUrl: 'view2/view2.html',
                 controller: 'View2Ctrl'
             })

@@ -15,7 +15,7 @@ angular.module("myApp").factory('homeService',['$http','SeatEatsConstants', func
     home.createRepo= function (index)
     {
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'createRepository.php?index='+index);
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'createrepository.php?index='+index);
         return promise;
     };
     home.removeRepository= function (index)
