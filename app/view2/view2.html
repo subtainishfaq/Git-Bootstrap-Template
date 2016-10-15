@@ -30,10 +30,16 @@
     <div class="row" >
       <div  style="padding: 50px">
         <!--content here goes-->
+        <h3 ng-if="photos.length==0 && !isUploadForm"">Empty Repository</h3>
 
-        <div deckgrid class="deckgrid" source="photos">
+        <button  class="k-primary" ng-if="photos.length==0 && !isUploadForm" ng-click="showUploadForm()">Primary Button</button>
+
+        <div ng-include="'uploadform.html'" ng-if="isUploadForm"></div>
+
+
+        <div deckgrid class="deckgrid" source="photos" ng-if="photos.length!=0">
           <div class="a-card">
-            <h1>{{card.title}}</h1>
+            <h1 >{{card.title}}</h1>
 
             <img src="" data-ng-src="{{card.src}}">
             <button data-ng-click="mother.doSomething()">Edit me!</button>
