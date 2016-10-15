@@ -18,12 +18,21 @@ foreach ($_FILES["Picture"]["error"] as $key => $error) {
 }*/
 
 
+$res=array();
+
 $move = "../repository".$_GET['index'];
 if (!file_exists($move)) {
     mkdir($move, 0777, true);
-    echo "created";
+    $post_data = array('created' => true,
+        'index' => intval($_GET['index'])
+        );
+    echo json_encode($post_data);
 }
 else
-    echo "already created";
-
+{
+    $post_data = array('created' => false,
+        'index' => intval($_GET['index'])
+    );
+    echo json_encode($post_data);
+}
 ?>

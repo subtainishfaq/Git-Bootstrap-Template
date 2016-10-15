@@ -8,9 +8,19 @@
 
 $move = "../repository".$_GET['index'];
 if(Delete($move))
-    echo "Deleted\n";
+{
+    $post_data = array('deleted' => true,
+        'index' => intval($_GET['index'])
+    );
+    echo json_encode($post_data);
+}
 else
-    echo "Not Deleted";
+{
+    $post_data = array('deleted' => false,
+        'index' => intval($_GET['index'])
+    );
+    echo json_encode($post_data);
+}
 
 
 function Delete($path)
