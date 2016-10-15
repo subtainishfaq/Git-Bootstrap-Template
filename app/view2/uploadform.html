@@ -1,28 +1,35 @@
-<form ng-if="isUploadForm">
 <table>
     <tbody>
     <tr>
 
         <td>
+            <label>Background<br></label>
             <input type="file"
                    kendo-upload
                    placeholder="Background"
-                   ng-click="doSomething()"
+                   options="optionsBackground"
 
                    name="file"/>
         </td>
         <td>
+            <label>First Ad<br></label>
+
             <input type="file"
                    kendo-upload
-                   placeholder="Background"
+                   placeholder="FirstAd"
+                   options="optionsFirstAd"
 
                    name="file"/>
         </td>
 
         <td>
+            <label>Second Ad<br></label>
+
             <input type="file"
                    kendo-upload
-                   placeholder="Background"
+                   placeholder="SecondAd"
+                   options="optionsSecondAd"
+
 
                    name="file"/>
         </td>
@@ -32,40 +39,41 @@
     <tr>
 
         <td>
-            <input type="file"
-                   kendo-upload
-                   placeholder="Background"
-                   name="file"/>
-        </td>
-        <td>
-            <input type="file"
-                   kendo-upload
-                   placeholder="Background"
-                   name="file"/>
-        </td>
-        <td>
-            <input type="file"
-                   kendo-upload
-                   placeholder="Background"
-                   name="file"/>
-        </td>
+            <label>Third Ad<br></label>
 
-    </tr>
-    <tr>
+            <input type="file"
+                   kendo-upload
+                   placeholder="ThirdAd"
+                   options="optionsThirdAd"
+
+                   name="file"/>
+        </td>
         <td>
+            <label>Fourth Ad<br></label>
+
+            <input type="file"
+                   kendo-upload
+                   placeholder="FourthAd"
+                   options="optionsFourthAd"
+
+                   name="file"/>
+        </td>
+        <td>
+            <label>Fifth Ad<br></label>
+
             <input type="file"
                    kendo-upload
                    placeholder="Background"
+                   options="optionsFifthAd"
+
                    name="file"/>
         </td>
-
 
     </tr>
 
     </tbody>
     </table>
+<br>
 
-    <button  class="k-primary" ng-if="isUploadForm" >Save</button>
-    <button   ng-if="isUploadForm" ng-click="cancleUploadForm()">Cancle</button>
+    <button  class="k-primary" ng-if="isUploadForm" ng-click="cancleUploadForm()">DONE</button>
 
-</form>

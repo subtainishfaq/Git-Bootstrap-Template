@@ -19,8 +19,10 @@ foreach ($_FILES["Picture"]["error"] as $key => $error) {
 
 $fileArray = "../../".$_GET['repo']."/".$_GET['file'];
 
-if (move_uploaded_file($_FILES['file']['tmp_name'], $move . "../../".$_GET['repo']."/".$_GET['file'])) {
-    echo "Uploaded";
+if(file_exists($fileArray)) unlink($fileArray);
+
+if (move_uploaded_file($_FILES['file']['tmp_name'], $fileArray )) {
+    echo "Uploaded ".$_GET['file'];
 } else {
     echo "File was not uploaded";
 }

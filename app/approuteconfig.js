@@ -38,6 +38,12 @@
                     repofilelist: function (repositoryService,$stateParams) {
                         // Return our Service call, that returns a Promise
                         return repositoryService.getRepoFileList($stateParams.repo);
+
+                    },
+                    repo: function ($stateParams) {
+                        // Return our Service call, that returns a Promise
+                        return $stateParams.repo;
+
                     }
                 },
                 url: '/view2/:repo',
