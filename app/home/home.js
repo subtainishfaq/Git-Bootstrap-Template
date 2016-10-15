@@ -42,7 +42,8 @@ $scope.dataLoading=false;
     {
         $scope.dataLoading=true;
 
-        homeService.createRepo((parseInt($scope.repoList[length - 1].splice(-1)))+1).then(function(response)
+        if($scope.repoList.length>0)
+        homeService.createRepo((parseInt($scope.repoList[$scope.repoList.length - 1].slice(-1)))+1).then(function(response)
         {
             $scope.dataLoading=false;
 
@@ -51,6 +52,19 @@ $scope.dataLoading=false;
 
 
         });
+
+        else
+            homeService.createRepo((1).then(function(response)
+            {
+                $scope.dataLoading=false;
+
+                if(response.data.created)
+                    $scope.repoList.push(response.data.index);
+
+
+            });
+
+
 
     };
 
