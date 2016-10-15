@@ -3,7 +3,7 @@
 angular.module('myApp.home', ['ngRoute'])
 
 
-.controller('HomeCtrl', ['$scope','SeatEatsConstants','$location','$state','repolist','homeService',function($scope,SeatEatsConstants,$location,$state,repolist,homeService)
+.controller('HomeCtrl', ['$scope','SeatEatsConstants','usSpinnerService','$location','$state','repolist','homeService',function($scope,SeatEatsConstants,$location,$state,repolist,homeService)
 {
 
 
@@ -18,12 +18,15 @@ $scope.dataLoading=false;
 
   $scope.removeRepo = function (item, index)
   {
-      $scope.dataLoading=true;
+      usSpinnerService.spin('spinner-1');
+
       if ($scope.repoList.length > 0)
       {
       homeService.removeRepository(index).then(function(response)
       {
-        console.log(response);
+          usSpinnerService.stop('spinner-1');
+
+          console.log(response);
           $scope.dataLoading=false;
           $scope.repoList.remove(index);
 
@@ -38,8 +41,12 @@ $scope.dataLoading=false;
     $scope.addNewRepo = function ()
     {
         $scope.dataLoading=true;
+        usSpinnerService.spin('spinner-1');
+
         homeService.createRepo(($scope.repoList.length + 1)).then(function(response)
         {
+            usSpinnerService.stop('spinner-1');
+
             console.log(response);
             var obj = "repository" + ($scope.repoList.length + 1);
             $scope.repoList.push(obj);

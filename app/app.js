@@ -10,7 +10,8 @@ angular.module('myApp', [
   'angularFileUpload',
   'kendo.directives',
   'akoenig.deckgrid',
-    'ui.router'
+    'ui.router',
+    'angularSpinner'
 
 
 ]);
