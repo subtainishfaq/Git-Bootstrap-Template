@@ -8,7 +8,7 @@ angular.module('myApp.view2', ['ngRoute'])
   console.log(repofilelist);
   $scope.photos = repofilelist.data;
   $scope.isUploadForm=false;
-var url=SeatEatsConstants.AppUrlApi+"uploadassets/postfile.php?repo="+repo+"&file=";
+var url=SeatEatsConstants.AppUrlApi+"postassets/postfile.php?repo="+repo+"&file=";
 
   $scope.showUploadForm=function ()
   {
@@ -17,7 +17,7 @@ var url=SeatEatsConstants.AppUrlApi+"uploadassets/postfile.php?repo="+repo+"&fil
 
   $scope.cancleUploadForm=function ()
   {
-    $state.reload();
+    $state.go($state.current, {}, {reload: true});
     $scope.isUploadForm=false;
   };
 

@@ -20,7 +20,7 @@ $scope.dataLoading=false;
   {
       $scope.dataLoading=true;
 
-      if ($scope.repoList.length > 0)
+      if ($scope.repoList.length > 0 && confirm("Are you sure you want to delete the repository!"))
       {
       homeService.removeRepository(item.slice(-1)).then(function(response)
       {
