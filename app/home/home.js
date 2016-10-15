@@ -42,7 +42,7 @@ $scope.dataLoading=false;
     {
         $scope.dataLoading=true;
 
-        homeService.createRepo(($scope.repoList.length + 1)).then(function(response)
+        homeService.createRepo((parseInt($scope.repoList[length - 1].splice(-1)))+1).then(function(response)
         {
             $scope.dataLoading=false;
 
