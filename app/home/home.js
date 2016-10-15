@@ -22,7 +22,7 @@ $scope.dataLoading=false;
 
       if ($scope.repoList.length > 0)
       {
-      homeService.removeRepository(index).then(function(response)
+      homeService.removeRepository(item.slice(-1)).then(function(response)
       {
           $scope.dataLoading=false;
 
@@ -47,7 +47,7 @@ $scope.dataLoading=false;
             $scope.dataLoading=false;
 
             if(response.data.created)
-            $scope.repoList.push(obj);
+            $scope.repoList.push(response.data.index);
 
 
         });

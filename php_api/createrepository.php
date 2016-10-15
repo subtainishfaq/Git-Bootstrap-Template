@@ -24,14 +24,14 @@ $move = "../repository".$_GET['index'];
 if (!file_exists($move)) {
     mkdir($move, 0777, true);
     $post_data = array('created' => true,
-        'index' => intval($_GET['index'])
+        'index' => "repository".intval($_GET['index'])
         );
     echo json_encode($post_data);
 }
 else
 {
     $post_data = array('created' => false,
-        'index' => intval($_GET['index'])
+        'index' => "repository".intval($_GET['index'])
     );
     echo json_encode($post_data);
 }
