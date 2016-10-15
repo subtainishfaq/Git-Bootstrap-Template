@@ -54,7 +54,7 @@ $scope.dataLoading=false;
         });
 
         else
-            homeService.createRepo((1).then(function(response)
+            homeService.createRepo(1).then(function(response)
             {
                 $scope.dataLoading=false;
 
