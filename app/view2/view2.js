@@ -9,17 +9,17 @@ angular.module('myApp.view2', ['ngRoute'])
   $scope.photos = repofilelist.data;
   $scope.isUploadForm=false;
 
-  if (repofilelist.data.length==0)
-  {
-
-  }
   $scope.doSomething=function ()
   {
-    $state.go("edit");
-  };
+    };
   $scope.showUploadForm=function ()
   {
     $scope.isUploadForm=true;
+  };
+
+  $scope.cancleUploadForm=function ()
+  {
+    $scope.isUploadForm=false;
   };
 
 

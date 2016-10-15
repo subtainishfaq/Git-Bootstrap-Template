@@ -26,15 +26,14 @@
 </nav>
 
 <section class="bg-primary" id="one" style=" padding-top: 100px;">
-  <div class="container">
+  <div class="container k-content">
     <div class="row" >
       <div  style="padding: 50px">
         <!--content here goes-->
         <h3 ng-if="photos.length==0 && !isUploadForm"">Empty Repository</h3>
 
-        <button  class="k-primary" ng-if="photos.length==0 && !isUploadForm" ng-click="showUploadForm()">Primary Button</button>
 
-        <div ng-include="'uploadform.html'" ng-if="isUploadForm"></div>
+        <div ng-include="'view2/uploadform.html'" ng-if="isUploadForm"></div>
 
 
         <div deckgrid class="deckgrid" source="photos" ng-if="photos.length!=0">
@@ -45,6 +44,7 @@
             <button data-ng-click="mother.doSomething()">Edit me!</button>
           </div>
         </div>
+        <button  class="k-primary" ng-if="!isUploadForm" ng-click="showUploadForm()">Primary Button</button>
 
         <!-- <input type="file"
                kendo-upload

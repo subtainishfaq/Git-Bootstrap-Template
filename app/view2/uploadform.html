@@ -6,15 +6,14 @@
         <td>
             <input type="file"
                    kendo-upload
-                   options="options"
                    placeholder="Background"
+                   ng-click="doSomething()"
 
                    name="file"/>
         </td>
         <td>
             <input type="file"
                    kendo-upload
-                   options="options"
                    placeholder="Background"
 
                    name="file"/>
@@ -23,7 +22,6 @@
         <td>
             <input type="file"
                    kendo-upload
-                   options="options"
                    placeholder="Background"
 
                    name="file"/>
@@ -36,21 +34,18 @@
         <td>
             <input type="file"
                    kendo-upload
-                   options="options"
                    placeholder="Background"
                    name="file"/>
         </td>
         <td>
             <input type="file"
                    kendo-upload
-                   options="options"
                    placeholder="Background"
                    name="file"/>
         </td>
         <td>
             <input type="file"
                    kendo-upload
-                   options="options"
                    placeholder="Background"
                    name="file"/>
         </td>
@@ -60,7 +55,6 @@
         <td>
             <input type="file"
                    kendo-upload
-                   options="options"
                    placeholder="Background"
                    name="file"/>
         </td>
@@ -70,5 +64,8 @@
 
     </tbody>
     </table>
+
+    <button  class="k-primary" ng-if="isUploadForm" >Save</button>
+    <button   ng-if="isUploadForm" ng-click="cancleUploadForm()">Cancle</button>
 
 </form>
