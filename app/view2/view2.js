@@ -7,6 +7,11 @@ angular.module('myApp.view2', ['ngRoute'])
 {
   console.log(repofilelist);
   $scope.photos = repofilelist.data;
+
+  $scope.FileName;
+  $scope.isDisable=false;
+
+
   $scope.isUploadForm=false;
 var url=SeatEatsConstants.AppUrlApi+"postassets/postfile.php?repo="+repo+"&file=";
 
@@ -59,6 +64,40 @@ var url=SeatEatsConstants.AppUrlApi+"postassets/postfile.php?repo="+repo+"&file=
     multiple: false
   };
 
+
+  $scope.optionsMenu={
+    async: {
+      saveUrl: url+$scope.FileName,
+    },
+    upload: onUpload,
+    select: onSelect,
+
+    multiple: false
+  };
+  $scope.optionsConfig={
+    async: {
+      saveUrl: url+"config.ini",
+    },
+    upload: onUpload,
+    select: onSelect,
+
+    multiple: false
+  };
+
+function onUpload (e) {
+  $scope.isDisable=false;
+
+}
+function onSelect (e) {
+  $scope.isDisable=true;
+  if(!angular.isDefined($scope.FileName))
+  {
+    $scope.isDisable=false;
+    e.preventDefault();
+
+
+  }
+}
 
 
 }]);

@@ -74,6 +74,30 @@
     </tbody>
     </table>
 <br>
+<h2>Menu Items</h2>
+<br>
+<br>
+
+<label>
+    Name:
+    <input id="currency" type="text" ng-model="FileName" ng-disabled="$scope.isDisable" min="0" max="100" style="width: 100%;" />
+</label>
+
+<input type="file"
+       kendo-upload
+       options="optionsMenu"
+       name="file"/>
+
+<br>
+<h2>Config.ini</h2>
+<br>
+<br>
+<input type="file"
+       kendo-upload
+       options="optionsConfig"
+       name="file"/>
+
+<br>
 
     <button  class="k-primary" ng-if="isUploadForm" ng-click="cancleUploadForm()">DONE</button>
 
