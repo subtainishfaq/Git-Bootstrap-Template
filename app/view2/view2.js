@@ -90,8 +90,9 @@ function onUpload (e) {
 }
 function onSelect (e) {
   $scope.isDisable=true;
-  if(!angular.isDefined($scope.FileName))
+  if($scope.FileName.length==0 || $scope.FileName.indexOf(".png") == -1)
   {
+    alert("Check the File Name Please");
     $scope.isDisable=false;
     e.preventDefault();
 

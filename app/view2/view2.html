@@ -32,7 +32,116 @@
         <h3 ng-if="photos.length==0 && !isUploadForm">Empty Repository</h3>
 
 
-        <div ng-include="'view2/uploadform.html'" ng-if="isUploadForm"></div>
+        <div  ng-if="isUploadForm">
+
+
+          <table>
+            <tbody>
+            <tr>
+
+              <td>
+                <label>Background<br></label>
+                <input type="file"
+                       kendo-upload
+                       placeholder="Background"
+                       options="optionsBackground"
+
+                       name="file"/>
+              </td>
+              <td>
+                <label>First Ad<br></label>
+
+                <input type="file"
+                       kendo-upload
+                       placeholder="FirstAd"
+                       options="optionsFirstAd"
+
+                       name="file"/>
+              </td>
+
+              <td>
+                <label>Second Ad<br></label>
+
+                <input type="file"
+                       kendo-upload
+                       placeholder="SecondAd"
+                       options="optionsSecondAd"
+
+
+                       name="file"/>
+              </td>
+
+            </tr>
+
+            <tr>
+
+              <td>
+                <label>Third Ad<br></label>
+
+                <input type="file"
+                       kendo-upload
+                       placeholder="ThirdAd"
+                       options="optionsThirdAd"
+
+                       name="file"/>
+              </td>
+              <td>
+                <label>Fourth Ad<br></label>
+
+                <input type="file"
+                       kendo-upload
+                       placeholder="FourthAd"
+                       options="optionsFourthAd"
+
+                       name="file"/>
+              </td>
+              <td>
+                <label>Fifth Ad<br></label>
+
+                <input type="file"
+                       kendo-upload
+                       placeholder="Background"
+                       options="optionsFifthAd"
+
+                       name="file"/>
+              </td>
+
+            </tr>
+
+            </tbody>
+          </table>
+          <br>
+          <h2>Menu Items</h2>
+          <br>
+          <br>
+
+          <label>
+            Name:
+            <input  type="text" ng-model="FileName" style="color:#000000" ng-disabled="$scope.isDisable"  style="width: 80%;" />
+          </label>
+
+          <input type="file"
+                 kendo-upload
+                 options="optionsMenu"
+                 name="file"/>
+
+          <br>
+          <h2>Config.ini</h2>
+          <br>
+          <br>
+          <input type="file"
+                 kendo-upload
+                 options="optionsConfig"
+                 name="file"/>
+
+          <br>
+
+          <button  class="k-primary" ng-if="isUploadForm" ng-click="cancleUploadForm()">DONE</button>
+
+
+
+
+        </div>
 
 
         <div deckgrid class="deckgrid" source="photos" ng-if="photos.length!=0 && !isUploadForm">
