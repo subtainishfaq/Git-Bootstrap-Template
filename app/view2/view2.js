@@ -1,14 +1,15 @@
 'use strict';
 
-angular.module('myApp.view2', ['ngRoute'])
+angular.module('myApp.view2', ['ngRoute','ngFileUpload'])
 
 
-.controller('View2Ctrl', ['$scope','$state','repofilelist','SeatEatsConstants','repo',function($scope,$state,repofilelist,SeatEatsConstants,repo)
+.controller('View2Ctrl', ['$scope','$state','repofilelist','SeatEatsConstants','repo','Upload', '$timeout',function($scope,$state,repofilelist,SeatEatsConstants,repo,Upload, $timeout)
 {
   console.log(repofilelist);
   $scope.photos = repofilelist.data;
 
-  $scope.FileName;
+  $scope.FileName={};
+  $scope.FileName.name=undefined;
   $scope.isDisable=false;
 
 
@@ -67,7 +68,7 @@ var url=SeatEatsConstants.AppUrlApi+"postassets/postfile.php?repo="+repo+"&file=
 
   $scope.optionsMenu={
     async: {
-      saveUrl: url+$scope.FileName,
+      saveUrl: url,
     },
     upload: onUpload,
     select: onSelect,
@@ -84,21 +85,44 @@ var url=SeatEatsConstants.AppUrlApi+"postassets/postfile.php?repo="+repo+"&file=
     multiple: false
   };
 
-function onUpload (e) {
-  $scope.isDisable=false;
+  $scope.uploadFiles = function(file, errFiles) {
+    $scope.f = file;
+    $scope.errFile = errFiles && errFiles[0];
+    if (file && $scope.FileName.name.length>0 && $scope.FileName.name.indexOf(".png") !== -1) {
+      $scope.isDisable=true;
 
-}
-function onSelect (e) {
-  $scope.isDisable=true;
-  if($scope.FileName.length==0 || $scope.FileName.indexOf(".png") == -1)
-  {
-    alert("Check the File Name Please");
-    $scope.isDisable=false;
-    e.preventDefault();
+      file.upload = Upload.upload({
+        url: url+$scope.FileName.name,
+        data: {file: file}
+      });
+
+      file.upload.then(function (response) {
+
+        $timeout(function () {
+          file.result = response.data;
+          $scope.isDisable=false;
+
+        });
+      }, function (response) {
+        $scope.isDisable=false;
+
+        if (response.status > 0)
+          $scope.errorMsg = response.status + ': ' + response.data;
+      }, function (evt) {
+        $scope.isDisable=false;
+
+        file.progress = Math.min(100, parseInt(100.0 *
+            evt.loaded / evt.total));
+      });
+    }
+    else
+    {
+      alert("check file is selected or name is entered properly?");
+      $scope.isDisable=false;
+
+    };
 
 
   }
-}
-
 
 }]);
