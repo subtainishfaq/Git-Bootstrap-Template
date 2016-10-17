@@ -66,21 +66,10 @@ var url=SeatEatsConstants.AppUrlApi+"postassets/postfile.php?repo="+repo+"&file=
   };
 
 
-  $scope.optionsMenu={
-    async: {
-      saveUrl: url,
-    },
-    upload: onUpload,
-    select: onSelect,
-
-    multiple: false
-  };
   $scope.optionsConfig={
     async: {
       saveUrl: url+"config.ini",
     },
-    upload: onUpload,
-    select: onSelect,
 
     multiple: false
   };
