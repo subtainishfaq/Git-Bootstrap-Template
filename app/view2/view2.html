@@ -119,7 +119,7 @@
             Name:
             <input  type="text" ng-model="FileName.name" style="color:#000000" ng-disabled="$scope.isDisable"  style="width: 80%;" />
           </label>
-
+  <br>
      <!--     <input type="file"
                  kendo-upload
                  options="optionsMenu"
@@ -127,7 +127,7 @@
 
           <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
                   accept="image/*"  ngf-max-size="10MB" class="k-primary">
-            Select File</button>
+            Select & Upload</button>
 
           <span class="progress" ng-show="f.progress >= 0">
           <div style="width:{{f.progress}}%"
@@ -145,7 +145,7 @@
 
           <br>
 
-          <button  class="k-primary" ng-if="isUploadForm" ng-click="cancleUploadForm()">DONE</button>
+          <button  class="k-primary" ng-if="isUploadForm" ng-click="cancleUploadForm()" style="width: 50%; ">DONE</button>
 
 
 
